@@ -191,15 +191,16 @@
         try {
           isLoading(true);
 
-          const resp = await fetch(endpoint, {
-            method,
-            body: JSON.stringify(newProduct),
-            headers: {
-              "Content-Type": "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE0M2M4YWY4MWI0MjAwMTM5YjI4NmEiLCJpYXQiOjE2NzkwNTEyNDIsImV4cCI6MTY4MDI2MDg0Mn0.OuSucr8Vs1EPl-dYAujcrnuuvTApBxqx5MdPKDmAPdk",
-            },
-          });
+          fetch("https://striveschool-api.herokuapp.com/api/product"),
+            {
+              method,
+              body: JSON.stringify(newProduct),
+              headers: {
+                "Content-Type": "application/json",
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE0M2M4YWY4MWI0MjAwMTM5YjI4NmEiLCJpYXQiOjE2NzkwNjAwOTUsImV4cCI6MTY4MDI2OTY5NX0.aa9-J0n-fobT0eyr3OWEYNpRINqZMV_CTrJfRKX1z0g",
+              },
+            };
 
           if (resp.ok) {
             const newAppObj = await resp.json();
